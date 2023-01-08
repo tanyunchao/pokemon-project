@@ -42,3 +42,24 @@ code {
   margin-top: 15px;
   text-align: center;
 }
+
+.pokelist{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.indivPokemon{
+  margin: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 45%;
+  padding: 5px;
+}
+
+.catch{
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+}

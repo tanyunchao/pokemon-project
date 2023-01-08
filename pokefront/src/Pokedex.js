@@ -25,17 +25,45 @@ const Pokedex = () => {
 
     }, []); // add vars inside that if changed, would rerun use effect
 
+    const styles = (type) => {
+        switch(type){
+            case 'Grass':
+                return {backgroundColor: "#66ff66"}
+            case 'Fire':
+                return {backgroundColor: "#ff4d4d"}
+            case 'Water':
+                return {backgroundColor: "#66ccff"}
+            case 'Normal':
+                return {backgroundColor: "#f2f2f2"}
+            case 'Electric':
+                return {backgroundColor: "#ffff00"}
+            case 'Ground':
+                return {backgroundColor: "#ffa31a"}
+            case 'Rock':
+                return {backgroundColor: "#cc9900"}
+            case 'Fighting':
+                return {backgroundColor: "#ff3300"}   
+            case 'Psychic':
+                return {backgroundColor: "#ff66ff"} 
+        }
+    }
 
     return ( 
-        <div>
+        <div className="pokelist">
 
-            <p>Here are all the available pokemons</p>
+            <h2 className="mt-3">Here are all the available pokemons:</h2>
+            {loading && <p>hold up page is loading...</p> }
             {data && 
             
                 data.map(pokemon => (
-                    <div>
-                        <p>pokemon.name</p>
-                        <p>pokemon.hp</p>
+                    <div className="indivPokemon"  style={styles(pokemon.type)} >
+                        <p>{pokemon.name}</p>
+                        <ul>
+                            <li>Hp: {pokemon.hp}</li>
+                            <li>Attack: {pokemon.attack}</li>
+                            <li>Defense: {pokemon.defense}</li>
+                            <li>Type: {pokemon.type}</li>
+                        </ul>
                     </div>
                 ))
             }
